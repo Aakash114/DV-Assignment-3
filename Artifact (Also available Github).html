@@ -1,0 +1,857 @@
+<!-- Styles -->
+<style>
+#chartdiv {
+  width: 100%;
+  height: 500px;
+}
+
+</style>
+
+<!-- Resources -->
+<script src="https://www.amcharts.com/lib/4/core.js"></script>
+<script src="https://www.amcharts.com/lib/4/charts.js"></script>
+<script src="https://www.amcharts.com/lib/4/maps.js"></script>
+<script src="https://www.amcharts.com/lib/4/geodata/worldLow.js"></script>
+<script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+
+<!-- Chart code -->
+<script>
+
+var data= [
+  {
+    "indicator": "AL",
+    "population": "2900000",
+    "GDP ": "34.20",
+    "GDP per km2 ": "1248266.29681",
+    "land area (sq km)": "27398",
+    "population density ": "104.8706934",
+    "total foreign-born": "57616"
+  },
+  {
+    "indicator": "AN",
+    "population": "102000",
+    "GDP ": "-",
+    "GDP per km2 ": "-",
+    "land area (sq km)": "442.6",
+    "population density ": "232",
+    "total foreign-born": "28646"
+  },
+  {
+    "indicator": "AM",
+    "population": "3000000",
+    "GDP ": "25.80",
+    "GDP per km2 ": "914796.29826614",
+    "land area (sq km)": "28203",
+    "population density ": "102.9311556",
+    "total foreign-born": "191199"
+  },
+  {
+    "indicator": "BA",
+    "population": "400000",
+    "GDP ": "9.00",
+    "GDP per km2 ": "899100.8991009",
+    "land area (sq km)": "10010",
+    "population density ": "39.4966034",
+    "total foreign-born": "59306"
+  },
+  {
+    "indicator": "BH",
+    "population": "1300000",
+    "GDP ": "66.90",
+    "GDP per km2 ": "88026315.789474",
+    "land area (sq km)": "760",
+    "population density ": "1935.906615",
+    "total foreign-born": "704137"
+  },
+  {
+    "indicator": "BB",
+    "population": "300000",
+    "GDP ": "4.80",
+    "GDP per km2 ": "11162790.697674",
+    "land area (sq km)": "430",
+    "population density ": "664.4627907",
+    "total foreign-born": "34475"
+  },
+  {
+    "indicator": "BZ",
+    "population": "400000",
+    "GDP ": "3.10",
+    "GDP per km2 ": "135929.141454",
+    "land area (sq km)": "22806",
+    "population density ": "16.42617273",
+    "total foreign-born": "53860"
+  },
+  {
+    "indicator": "BT",
+    "population": "800000",
+    "GDP ": "6.50",
+    "GDP per km2 ": "169297.28603428",
+    "land area (sq km)": "38394",
+    "population density ": "21.18765905",
+    "total foreign-born": "51106"
+  },
+  {
+    "indicator": "BA",
+    "population": "3900000",
+    "GDP ": "42.20",
+    "GDP per km2 ": "824428.07744154",
+    "land area (sq km)": "51187",
+    "population density ": "68.49642578",
+    "total foreign-born": "34803"
+  },
+  {
+    "indicator": "BW",
+    "population": "2200000",
+    "GDP ": "36.70",
+    "GDP per km2 ": "64757.468282957",
+    "land area (sq km)": "566730",
+    "population density ": "4.043655709",
+    "total foreign-born": "160644"
+  },
+  {
+    "indicator": "BN",
+    "population": "400000",
+    "GDP ": "32.50",
+    "GDP per km2 ": "6172839.5061728",
+    "land area (sq km)": "5265",
+    "population density ": "81.34667932",
+    "total foreign-born": "102733"
+  },
+  {
+    "indicator": "CV",
+    "population": "500000",
+    "GDP ": "3.50",
+    "GDP per km2 ": "867840.3173816",
+    "land area (sq km)": "4033",
+    "population density ": "135.5801489",
+    "total foreign-born": "14924"
+  },
+  {
+    "indicator": "CF",
+    "population": "4900000",
+    "GDP ": "3.20",
+    "GDP per km2 ": "5136.5685154033",
+    "land area (sq km)": "622984",
+    "population density ": "7.478699156",
+    "total foreign-born": "81598"
+  },
+  {
+    "indicator": "KM",
+    "population": "800000",
+    "GDP ": "1.30",
+    "GDP per km2 ": "581655.48098434",
+    "land area (sq km)": "2235",
+    "population density ": "437.3519613",
+    "total foreign-born": "12555"
+  },
+  {
+    "indicator": "CD",
+    "population": "4500000",
+    "GDP ": "29.80",
+    "GDP per km2 ": "87262.079062958",
+    "land area (sq km)": "341500",
+    "population density ": "15.40483163",
+    "total foreign-born": "392996"
+  },
+  {
+    "indicator": "CR",
+    "population": "4900000",
+    "GDP ": "80.70",
+    "GDP per km2 ": "1580493.5370153",
+    "land area (sq km)": "51060",
+    "population density ": "96.07851547",
+    "total foreign-born": "421697"
+  },
+  {
+    "indicator": "HR",
+    "population": "4200000",
+    "GDP ": "95.10",
+    "GDP per km2 ": "1699003.1085861",
+    "land area (sq km)": "55974",
+    "population density ": "73.72587563",
+    "total foreign-born": "576883"
+  },
+  {
+    "indicator": "CY",
+    "population": "800000",
+    "GDP ": "29.70",
+    "GDP per km2 ": "3213937.8855102",
+    "land area (sq km)": "9241",
+    "population density ": "127.6570346",
+    "total foreign-born": "196167"
+  },
+  {
+    "indicator": "DJ",
+    "population": "1000000",
+    "GDP ": "3.30",
+    "GDP per km2 ": "142364.10698878",
+    "land area (sq km)": "23180",
+    "population density ": "41.28494392",
+    "total foreign-born": "112351"
+  },
+  {
+    "indicator": "DO",
+    "population": "100000",
+    "GDP ": "0.80",
+    "GDP per km2 ": "1065246.3382157",
+    "land area (sq km)": "751",
+    "population density ": "98.56666667",
+    "total foreign-born": "6720"
+  },
+  {
+    "indicator": "GQ",
+    "population": "800000",
+    "GDP ": "31.70",
+    "GDP per km2 ": "1130084.4889665",
+    "land area (sq km)": "28051",
+    "population density ": "45.19390374",
+    "total foreign-born": "10825"
+  },
+  {
+    "indicator": "ER",
+    "population": "5000000",
+    "GDP ": "9.2",
+    "GDP per km2 ": "91089.108910891",
+    "land area (sq km)": "101000",
+    "population density ": "-",
+    "total foreign-born": "16041"
+  },
+  {
+    "indicator": "EE",
+    "population": "1300000",
+    "GDP ": "38.50",
+    "GDP per km2 ": "908275.92714919",
+    "land area (sq km)": "42388",
+    "population density ": "31.03279075",
+    "total foreign-born": "202348"
+  },
+  {
+    "indicator": "SZ",
+    "population": "1100000",
+    "GDP ": "11.10",
+    "GDP per km2 ": "645198.79097884",
+    "land area (sq km)": "17204",
+    "population density ": "79.49151163",
+    "total foreign-born": "31579"
+  },
+  {
+    "indicator": "FJ",
+    "population": "900000",
+    "GDP ": "8.30",
+    "GDP per km2 ": "454197.22009412",
+    "land area (sq km)": "18274",
+    "population density ": "49.56223317",
+    "total foreign-born": "13751"
+  },
+  {
+    "indicator": "GA",
+    "population": "1900000",
+    "GDP ": "35.90",
+    "GDP per km2 ": "139327.11600632",
+    "land area (sq km)": "257667",
+    "population density ": "7.859420965",
+    "total foreign-born": "268384"
+  },
+  {
+    "indicator": "GM",
+    "population": "2100000",
+    "GDP ": "3.40",
+    "GDP per km2 ": "335968.37944664",
+    "land area (sq km)": "10120",
+    "population density ": "207.5660079",
+    "total foreign-born": "192540"
+  },
+  {
+    "indicator": "GE",
+    "population": "3700000",
+    "GDP ": "37.20",
+    "GDP per km2 ": "533715.92539455",
+    "land area (sq km)": "69700",
+    "population density ": "65.03201652",
+    "total foreign-born": "168802"
+  },
+  {
+    "indicator": "GD",
+    "population": "108000",
+    "GDP ": "-",
+    "GDP per km2 ": "-",
+    "land area (sq km)": "344",
+    "population density ": "317",
+    "total foreign-born": "7124"
+  },
+  {
+    "indicator": "GW",
+    "population": "1700000",
+    "GDP ": "2.90",
+    "GDP per km2 ": "103129.44523471",
+    "land area (sq km)": "28120",
+    "population density ": "66.19071835",
+    "total foreign-born": "22333"
+  },
+  {
+    "indicator": "GN",
+    "population": "800000",
+    "GDP ": "6.00",
+    "GDP per km2 ": "30480.215799928",
+    "land area (sq km)": "196849",
+    "population density ": "3.951531623",
+    "total foreign-born": "15384"
+  },
+  {
+    "indicator": "IS",
+    "population": "300000",
+    "GDP ": "16.50",
+    "GDP per km2 ": "164588.5286783",
+    "land area (sq km)": "100250",
+    "population density ": "3.404329177",
+    "total foreign-born": "37522"
+  },
+  {
+    "indicator": "IE",
+    "population": "4700000",
+    "GDP ": "324.90",
+    "GDP per km2 ": "4716693.5238012",
+    "land area (sq km)": "68883",
+    "population density ": "69.87382784",
+    "total foreign-born": "746260"
+  },
+  {
+    "indicator": "JM",
+    "population": "2800000",
+    "GDP ": "25.40",
+    "GDP per km2 ": "2345120.4874896",
+    "land area (sq km)": "10831",
+    "population density ": "266.8789474",
+    "total foreign-born": "23167"
+  },
+  {
+    "indicator": "KI",
+    "population": "100000",
+    "GDP ": "0.20",
+    "GDP per km2 ": "246609.12453761",
+    "land area (sq km)": "811",
+    "population density ": "143.7012346",
+    "total foreign-born": "3153"
+  },
+  {
+    "indicator": "XK",
+    "population": "1900000",
+    "GDP ": "18.40",
+    "GDP per km2 ": "1690089.0970883",
+    "land area (sq km)": "10887",
+    "population density ": "168.1546799",
+    "total foreign-born": "-"
+  },
+  {
+    "indicator": "KW",
+    "population": "4200000",
+    "GDP ": "303.70",
+    "GDP per km2 ": "17044561.679201",
+    "land area (sq km)": "17818",
+    "population density ": "232.1283951",
+    "total foreign-born": "2866136"
+  },
+  {
+    "indicator": "LV",
+    "population": "2000000",
+    "GDP ": "50.60",
+    "GDP per km2 ": "812864.46368616",
+    "land area (sq km)": "62249",
+    "population density ": "31.21164362",
+    "total foreign-born": "263126"
+  },
+  {
+    "indicator": "LB",
+    "population": "4600000",
+    "GDP ": "85.20",
+    "GDP per km2 ": "8328445.7478006",
+    "land area (sq km)": "10230",
+    "population density ": "594.5608016",
+    "total foreign-born": "1997776"
+  },
+  {
+    "indicator": "LS",
+    "population": "1900000",
+    "GDP ": "7.00",
+    "GDP per km2 ": "230604.51325976",
+    "land area (sq km)": "30355",
+    "population density ": "73.56189065",
+    "total foreign-born": "6572"
+  },
+  {
+    "indicator": "LR",
+    "population": "4400000",
+    "GDP ": "3.80",
+    "GDP per km2 ": "39451.827242525",
+    "land area (sq km)": "96320",
+    "population density ": "49.12693106",
+    "total foreign-born": "113779"
+  },
+  {
+    "indicator": "LT",
+    "population": "2900000",
+    "GDP ": "86.10",
+    "GDP per km2 ": "1373643.905552",
+    "land area (sq km)": "62680",
+    "population density ": "45.13521149",
+    "total foreign-born": "136036"
+  },
+  {
+    "indicator": "LU",
+    "population": "600000",
+    "GDP ": "59.90",
+    "GDP per km2 ": "23163186.388244",
+    "land area (sq km)": "2586",
+    "population density ": "231.4474903",
+    "total foreign-born": "249325"
+  },
+  {
+    "indicator": "MK",
+    "population": "2100000",
+    "GDP ": "30.30",
+    "GDP per km2 ": "1191365.5486966",
+    "land area (sq km)": "25433",
+    "population density ": "82.59952419",
+    "total foreign-born": "130730"
+  },
+  {
+    "indicator": "MV",
+    "population": "400000",
+    "GDP ": "5.50",
+    "GDP per km2 ": "18456375.838926",
+    "land area (sq km)": "298",
+    "population density ": "1454.433333",
+    "total foreign-born": "94086"
+  },
+  {
+    "indicator": "MT",
+    "population": "400000",
+    "GDP ": "17.30",
+    "GDP per km2 ": "54746835.443038",
+    "land area (sq km)": "316",
+    "population density ": "1454.0375",
+    "total foreign-born": "41442"
+  },
+  {
+    "indicator": "MR",
+    "population": "3800000",
+    "GDP ": "16.40",
+    "GDP per km2 ": "15911.516445134",
+    "land area (sq km)": "1030700",
+    "population density ": "4.288526244",
+    "total foreign-born": "138162"
+  },
+  {
+    "indicator": "MU",
+    "population": "1300000",
+    "GDP ": "25.90",
+    "GDP per km2 ": "12758620.689655",
+    "land area (sq km)": "2030",
+    "population density ": "622.962069",
+    "total foreign-born": "28585"
+  },
+  {
+    "indicator": "FM",
+    "population": "100000",
+    "GDP ": "0.30",
+    "GDP per km2 ": "427350.42735043",
+    "land area (sq km)": "702",
+    "population density ": "150.7771429",
+    "total foreign-born": "2756"
+  },
+  {
+    "indicator": "MO",
+    "population": "3600000",
+    "GDP ": "18.90",
+    "GDP per km2 ": "574625.27743152",
+    "land area (sq km)": "32891",
+    "population density ": "123.6545094",
+    "total foreign-born": "142904"
+  },
+  {
+    "indicator": "MN",
+    "population": "3000000",
+    "GDP ": "37.00",
+    "GDP per km2 ": "23816.328474802",
+    "land area (sq km)": "1553556",
+    "population density ": "1.979741368",
+    "total foreign-born": "17620"
+  },
+  {
+    "indicator": "ME",
+    "population": "600000",
+    "GDP ": "10.40",
+    "GDP per km2 ": "773119.2387749",
+    "land area (sq km)": "13452",
+    "population density ": "46.28037175",
+    "total foreign-born": "82541"
+  },
+  {
+    "indicator": "NA",
+    "population": "2300000",
+    "GDP ": "26.00",
+    "GDP per km2 ": "31580.609505763",
+    "land area (sq km)": "823290",
+    "population density ": "3.077644572",
+    "total foreign-born": "93888"
+  },
+  {
+    "indicator": "NZ",
+    "population": "4700000",
+    "GDP ": "177.00",
+    "GDP per km2 ": "669093.54835051",
+    "land area (sq km)": "264537",
+    "population density ": "18.20629676",
+    "total foreign-born": "1039736"
+  },
+  {
+    "indicator": "NO",
+    "population": "5000000",
+    "GDP ": "364.4",
+    "GDP per km2 ": "1197573.3037117",
+    "land area (sq km)": "304282",
+    "population density ": "14",
+    "total foreign-born": "798944"
+  },
+  {
+    "indicator": "OM",
+    "population": "4000000",
+    "GDP ": "184.80",
+    "GDP per km2 ": "597092.08400646",
+    "land area (sq km)": "309500",
+    "population density ": "14.97984491",
+    "total foreign-born": "1844978"
+  },
+  {
+    "indicator": "PA",
+    "population": "4000000",
+    "GDP ": "92.90",
+    "GDP per km2 ": "1249663.7072908",
+    "land area (sq km)": "74340",
+    "population density ": "55.13299704",
+    "total foreign-born": "184710"
+  },
+  {
+    "indicator": "QA",
+    "population": "2600000",
+    "GDP ": "329.20",
+    "GDP per km2 ": "28413602.623856",
+    "land area (sq km)": "11586",
+    "population density ": "227.3222222",
+    "total foreign-born": "1687640"
+  },
+  {
+    "indicator": "LC",
+    "population": "200000",
+    "GDP ": "2.10",
+    "GDP per km2 ": "3465346.5346535",
+    "land area (sq km)": "606",
+    "population density ": "293.1868852",
+    "total foreign-born": "12771"
+  },
+  {
+    "indicator": "VC",
+    "population": "100000",
+    "GDP ": "1.20",
+    "GDP per km2 ": "3084832.9048843",
+    "land area (sq km)": "389",
+    "population density ": "281.7871795",
+    "total foreign-born": "4577"
+  },
+  {
+    "indicator": "WS",
+    "population": "200000",
+    "GDP ": "1.10",
+    "GDP per km2 ": "389932.64799716",
+    "land area (sq km)": "2821",
+    "population density ": "69.41342756",
+    "total foreign-born": "4929"
+  },
+  {
+    "indicator": "ST",
+    "population": "200000",
+    "GDP ": "0.60",
+    "GDP per km2 ": "622406.63900415",
+    "land area (sq km)": "964",
+    "population density ": "212.840625",
+    "total foreign-born": "2394"
+  },
+  {
+    "indicator": "SC",
+    "population": "100000",
+    "GDP ": "2.60",
+    "GDP per km2 ": "5714285.7142857",
+    "land area (sq km)": "455",
+    "population density ": "208.3543478",
+    "total foreign-born": "12791"
+  },
+  {
+    "indicator": "SK",
+    "population": "5000000",
+    "GDP ": "170.1",
+    "GDP per km2 ": "3536014.9672591",
+    "land area (sq km)": "48105",
+    "population density ": "113",
+    "total foreign-born": "184642"
+  },
+  {
+    "indicator": "SI",
+    "population": "2100000",
+    "GDP ": "66.20",
+    "GDP per km2 ": "3285196.7644286",
+    "land area (sq km)": "20151",
+    "population density ": "102.6190665",
+    "total foreign-born": "235966"
+  },
+  {
+    "indicator": "SB",
+    "population": "600000",
+    "GDP ": "1.20",
+    "GDP per km2 ": "42878.582148217",
+    "land area (sq km)": "27986",
+    "population density ": "21.8414791",
+    "total foreign-born": "2585"
+  },
+  {
+    "indicator": "SR",
+    "population": "600000",
+    "GDP ": "7.90",
+    "GDP per km2 ": "50641.025641026",
+    "land area (sq km)": "156000",
+    "population density ": "3.611551282",
+    "total foreign-born": "46836"
+  },
+  {
+    "indicator": "TL",
+    "population": "1200000",
+    "GDP ": "5.00",
+    "GDP per km2 ": "336157.05257496",
+    "land area (sq km)": "14874",
+    "population density ": "87.17626093",
+    "total foreign-born": "10834"
+  },
+  {
+    "indicator": "TO",
+    "population": "100000",
+    "GDP ": "0.56",
+    "GDP per km2 ": "785216.17852162",
+    "land area (sq km)": "717",
+    "population density ": "150.0277778",
+    "total foreign-born": "5731"
+  },
+  {
+    "indicator": "TT",
+    "population": "1400000",
+    "GDP ": "43.55",
+    "GDP per km2 ": "8493174.7269891",
+    "land area (sq km)": "5128",
+    "population density ": "266.8859649",
+    "total foreign-born": "49883"
+  },
+  {
+    "indicator": "UY",
+    "population": "3500000",
+    "GDP ": "74.90",
+    "GDP per km2 ": "427963.31742993",
+    "land area (sq km)": "175015",
+    "population density ": "19.75059993",
+    "total foreign-born": "71799"
+  },
+  {
+    "indicator": "VU",
+    "population": "300000",
+    "GDP ": "0.70",
+    "GDP per km2 ": "57428.829272295",
+    "land area (sq km)": "12189",
+    "population density ": "22.66152584",
+    "total foreign-born": "3187"
+  }
+];
+
+
+
+am4core.ready(function() {
+
+// Themes begin
+am4core.useTheme(am4themes_animated);
+// Themes end
+
+/* Create map instance */
+
+
+var chart = am4core.create("chartdiv", am4maps.MapChart);
+//var chart1 = am4core.create("chartdiv1", am4charts.SlicedChart);
+
+/* Set map definition */
+chart.geodata = am4geodata_worldLow;
+
+var title = chart.titles.create();
+title.text = "[bold font-size: 20]Smaller Countries are Beautiful[/]\nCS7DS4 -  Data Visulization";
+title.textAlign = "middle";
+
+var worldSeries = chart.series.push(new am4maps.MapPolygonSeries());
+var worldSeriesName = "world";
+worldSeries.name = worldSeriesName;
+worldSeries.fill = am4core.color("#000000");
+worldSeries.useGeodata = true;
+worldSeries.exclude = ["AL","AN","AM","BA","BH","BB","BZ","BT","BA","BW","BN","CV","CF","KM","CD","CR","HR","CY","DJ","DO","GQ","ER","EE","SZ","FJ","GA","GM","GE","GD","GW","GN","IS","IE","JM","KI","XK","KW","LV","LB","LS","LR","LT","LU","MK","MV","MT","MR","MU","MO","MN","ME","NA","NZ","NO","OM","PA","QA","SK","SL","SB","SR","TL","TO","TT","UY","VU","AQ"];
+worldSeries.fillOpacity = 0.8;
+worldSeries.hiddenInLegend = true;
+worldSeries.mapPolygons.template.nonScalingStroke = true;
+
+
+/* Set projection */
+chart.projection = new am4maps.projections.Miller();
+
+/* Create map polygon series */
+var polygonSeries = chart.series.push(new am4maps.MapPolygonSeries());
+
+/* Make map load polygon (like country names) data from GeoJSON */
+polygonSeries.useGeodata = true;
+
+/* Configure series */
+var polygonTemplate = polygonSeries.mapPolygons.template;
+polygonTemplate.applyOnClones = true;
+polygonTemplate.togglable = true;
+polygonTemplate.tooltipText = "{name}";
+polygonTemplate.nonScalingStroke = true;
+polygonTemplate.strokeOpacity = 0.5;
+polygonTemplate.fill = chart.colors.getIndex(0);
+var lastSelected;
+polygonTemplate.events.on("hit", function(event) {
+  if (lastSelected) {
+    lastSelected.isActive = false;
+  }
+  event.target.series.chart.zoomToMapObject(event.target);
+  if (lastSelected !== event.target) {
+    lastSelected = event.target;
+
+  }
+  setTimeout(function(){ document.getElementById('chartdiv1').scrollIntoView(); }, 3000);
+  var id = event.target.dataItem.dataContext.id;
+  console.log(id)
+  showState(id);
+
+})
+
+
+
+
+/* Create selected and hover states and set alternative fill color */
+var ss = polygonTemplate.states.create("active");
+ss.properties.fill = chart.colors.getIndex(2);
+
+var hs = polygonTemplate.states.create("hover");
+hs.properties.fill = chart.colors.getIndex(4);
+
+// Hide Antarctica
+polygonSeries.exclude = ["AQ"];
+polygonSeries.include = ["AL","AN","AM","BA","BH","BB","BZ","BT","BA","BW","BN","CV","CF","KM","CD","CR","HR","CY","DJ","DO","GQ","ER","EE","SZ","FJ","GA","GM","GE","GD","GW","GN","IS","IE","JM","KI","XK","KW","LV","LB","LS","LR","LT","LU","MK","MV","MT","MR","MU","MO","MN","ME","NA","NZ","NO","OM","PA","QA","SK","SL","SB","SR","TL","TO","TT","UY","VU"];
+
+// Small map
+chart.smallMap = new am4maps.SmallMap();
+// Re-position to top right (it defaults to bottom left)
+chart.smallMap.align = "right";
+chart.smallMap.valign = "top";
+chart.smallMap.series.push(polygonSeries);
+
+// Zoom control
+chart.zoomControl = new am4maps.ZoomControl();
+
+var homeButton = new am4core.Button();
+homeButton.events.on("hit", function(){
+  chart.goHome();
+});
+
+homeButton.icon = new am4core.Sprite();
+homeButton.padding(7, 5, 7, 5);
+homeButton.width = 30;
+homeButton.icon.path = "M16,8 L14,8 L14,16 L10,16 L10,10 L6,10 L6,16 L2,16 L2,8 L0,8 L8,0 L16,8 Z M16,8";
+homeButton.marginBottom = 10;
+homeButton.parent = chart.zoomControl;
+homeButton.insertBefore(chart.zoomControl.plusButton);
+
+function showState(id) {
+  mylist = [];
+  var a,b,c,d;
+  for(i = 0; i<data.length; i++){
+    console.log(data[i]);
+    if (data[i].indicator == id)
+    {
+
+       a = Object.keys(data[i]);
+       b = Object.values(data[i]);
+       c = a.shift();
+       d = b.shift();
+  
+    }
+  }
+  console.log(c);
+  console.log(d);
+
+  data1 = []
+
+  for (var i = 0; i < a.length; i++) {
+  data1.push({ category: a[i], value1: b[i] });
+}
+
+  console.log(data);
+
+var chart1 = am4core.create("chartdiv1", am4charts.XYChart);
+
+var interfaceColors = new am4core.InterfaceColorSet();
+
+chart1.data = data1;
+// the following line makes value axes to be arranged vertically.
+chart1.bottomAxesContainer.layout = "horizontal";
+chart1.bottomAxesContainer.reverseOrder = true;
+
+var categoryAxis = chart1.yAxes.push(new am4charts.CategoryAxis());
+categoryAxis.dataFields.category = "category";
+categoryAxis.renderer.grid.template.stroke = interfaceColors.getFor("background");
+categoryAxis.renderer.grid.template.strokeOpacity = 1;
+categoryAxis.renderer.grid.template.location = 1;
+categoryAxis.renderer.minGridDistance = 20;
+
+
+var valueAxis2 = chart1.xAxes.push(new am4charts.ValueAxis());
+valueAxis2.tooltip.disabled = true;
+valueAxis2.renderer.baseGrid.disabled = true;
+valueAxis2.marginRight = 30;
+valueAxis2.renderer.gridContainer.background.fill = interfaceColors.getFor("alternativeBackground");
+valueAxis2.renderer.gridContainer.background.fillOpacity = 0.05;
+valueAxis2.renderer.grid.template.stroke = interfaceColors.getFor("background");
+valueAxis2.renderer.grid.template.strokeOpacity = 1;
+valueAxis2.title.text = "Specific Details of the Country";
+
+var series2 = chart1.series.push(new am4charts.ColumnSeries());
+series2.dataFields.categoryY = "category";
+series2.dataFields.valueX = "value1";
+series2.xAxis = valueAxis2;
+series2.name = "Series 2";
+var bullet2 = series2.bullets.push(new am4charts.CircleBullet());
+bullet2.fillOpacity = 0;
+bullet2.strokeOpacity = 0;
+bullet2.tooltipText = "{valueX.value}";
+
+
+
+chart1.cursor = new am4charts.XYCursor();
+chart1.cursor.behavior = "zoomY";
+
+var scrollbarY = new am4core.Scrollbar();
+chart1.scrollbarY = scrollbarY;
+
+
+
+  
+
+}
+
+
+}); // end am4core.ready()
+</script>
+
+<!-- HTML -->
+<div id="chartdiv"></div>
+<div id="chartdiv1"></div>
